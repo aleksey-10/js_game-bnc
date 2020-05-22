@@ -11,19 +11,23 @@ document.querySelector('.form').onsubmit = function (e) {
 
   attempts--;
 
-  (attempts < 1 || result.bulls === 4) ? gameOver(true) : fillUpOutput(enteredNumber, result);
+  if (attempts < 1 || result.bulls === 4) {
+    return gameOver(result)
+  }
+  
+  fillUpOutput(enteredNumber, result);
 
   return false;
 };
 
-function gameOver(isWinner) {
+function gameOver(result) {
   outputElement.querySelector('.output__list').remove('output--active');
   
   const gameOverElement = outputElement.querySelector('.output__gameover');
   
   gameOverElement.classList.add('output__gameover--active');
 
-  gameOverElement.innerHTML = isWinner ? 'You won!' : 'You lose!'; 
+  gameOverElement.innerHTML = result.bulls === 4 ? 'You won!' : 'You lose!'; 
 }
 
 const outputElement = document.querySelector('.output');

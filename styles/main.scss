@@ -33,20 +33,19 @@ ul {
 }
 
 .output {
-  display: none;
+  &__list,
+  &__gameover {
+    display: none;
 
-  &--active {
-    display: block;
+    &--active {
+      display: block;
+    }
   }
 
   &__item {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 15px;
-  }
-
-  &__generated {
-    color: red;
   }
 
   &__entered {

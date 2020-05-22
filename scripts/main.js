@@ -1,22 +1,44 @@
 'use strict';
 
-const outputElement = document.querySelector('.output');
+const randomNumber = generateRandomNumber();
+let attempts = 5;
 
-document.querySelector('.form').onsubmit = function(e) {
-  const randomNumber = generateRandomNumber();
+console.log(randomNumber);
+
+document.querySelector('.form').onsubmit = function (e) {
   const enteredNumber = this.querySelector('input').value;
   const result = bullsAndCows(randomNumber, enteredNumber);
 
-  outputElement.querySelector('.output__generated').innerHTML = randomNumber;
+  attempts--;
+
+  (attempts < 1 || result.bulls === 4) ? gameOver(true) : fillUpOutput(enteredNumber, result);
+
+  return false;
+};
+
+function gameOver(isWinner) {
+  outputElement.querySelector('.output__list').remove('output--active');
+  
+  const gameOverElement = outputElement.querySelector('.output__gameover');
+  
+  gameOverElement.classList.add('output__gameover--active');
+
+  gameOverElement.innerHTML = isWinner ? 'You won!' : 'You lose!'; 
+}
+
+const outputElement = document.querySelector('.output');
+
+function fillUpOutput(enteredNumber, result) {
   outputElement.querySelector('.output__entered').innerHTML = enteredNumber;
 
   outputElement.querySelector('.output__result').innerHTML
     = result ? `Bulls: ${result.bulls}, Cows: ${result.cows}` : 'Wrong input!';
 
-  outputElement.classList.add('output--active');
+  outputElement.querySelector('.output__attempts').innerHTML
+    = attempts
 
-  return false;
-};
+  outputElement.querySelector('.output__list').classList.add('output__list--active');
+}
 
 function generateRandomNumber() {
   let output = '';

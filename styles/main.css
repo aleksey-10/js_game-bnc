@@ -29,19 +29,16 @@ ul {
   cursor: pointer;
 }
 
-.output {
+.output__list, .output__gameover {
   display: none;
 }
-.output--active {
+.output__list--active, .output__gameover--active {
   display: block;
 }
 .output__item {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin-bottom: 15px;
-}
-.output__generated {
-  color: red;
 }
 .output__entered {
   color: green;

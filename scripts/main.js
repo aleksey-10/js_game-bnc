@@ -3,8 +3,6 @@
 const randomNumber = generateRandomNumber();
 let attempts = 5;
 
-console.log(randomNumber);
-
 document.querySelector('.form').onsubmit = function() {
   const enteredNumber = this.querySelector('input').value;
   const result = bullsAndCows(randomNumber, enteredNumber);
@@ -12,10 +10,10 @@ document.querySelector('.form').onsubmit = function() {
   attempts--;
 
   if (attempts < 1 || (result && result.bulls === 4)) {
-    return gameOver(result);
+    gameOver(result);
+  } else {
+    fillUpOutput(enteredNumber, result);
   }
-
-  fillUpOutput(enteredNumber, result);
 
   return false;
 };

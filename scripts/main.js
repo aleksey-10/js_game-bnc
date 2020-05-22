@@ -3,13 +3,15 @@
 const randomNumber = generateRandomNumber();
 let attempts = 5;
 
+console.log(randomNumber);
+
 document.querySelector('.form').onsubmit = function() {
   const enteredNumber = this.querySelector('input').value;
   const result = bullsAndCows(randomNumber, enteredNumber);
 
   attempts--;
 
-  if (attempts < 1 || result.bulls === 4) {
+  if (attempts < 1 || (result && result.bulls === 4)) {
     return gameOver(result);
   }
 
@@ -25,7 +27,13 @@ function gameOver(result) {
 
   gameOverElement.classList.add('output__gameover--active');
 
-  gameOverElement.innerHTML = result.bulls === 4 ? 'You won!' : 'You lose!';
+  gameOverElement.innerHTML = (result && result.bulls === 4)
+    ? 'You won!' : 'You lose!';
+
+  const message = document.createElement('span');
+
+  message.innerHTML = `The number was ${randomNumber}`;
+  outputElement.append(message);
 }
 
 const outputElement = document.querySelector('.output');

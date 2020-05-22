@@ -11,7 +11,7 @@ document.querySelector('.form').onsubmit = function() {
 
   attempts--;
 
-  if (attempts < 1 || result.bulls === 4) {
+  if (attempts < 1 || (result && result.bulls === 4)) {
     return gameOver(result);
   }
 
@@ -26,7 +26,9 @@ function gameOver(result) {
   const gameOverElement = outputElement.querySelector('.output__gameover');
 
   gameOverElement.classList.add('output__gameover--active');
-  gameOverElement.innerHTML = result.bulls === 4 ? 'You won!' : 'You lose!';
+
+  gameOverElement.innerHTML = (result && result.bulls === 4)
+    ? 'You won!' : 'You lose!';
 
   const message = document.createElement('span');
 

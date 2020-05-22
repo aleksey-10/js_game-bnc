@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.game {
+  margin: 0 auto;
+  width: 300px;
+}
+
+.form {
+  &__input {
+    padding: 10px;
+  }
+
+  &__button {
+    width: 60px;
+    padding: 10px 0;
+    cursor: pointer;
+  }
+}
+
+.output {
+  display: none;
+
+  &--active {
+    display: block;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 15px;
+  }
+
+  &__generated {
+    color: red;
+  }
+
+  &__entered {
+    color: green;
+  }
+
+  &__result {
+    font-weight: bold;
+  }
+}

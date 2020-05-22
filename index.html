@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulls and cows</title>
+    <link rel="stylesheet" href="./styles/main.css">
+  </head>
+  <body>
+    <h1>Bulls and cows</h1>
+    <div class="game">
+      <form action="#" class="game__form form">
+        <input
+          type="text"
+          class="form__input"
+          placeholder="Your number"
+          required
+          minlength="4"
+          maxlength="4"
+        >
+        <button class="form__button">Submit</button>
+      </form>
+      <div class="game__output output">
+        <ul class="output__list">
+          <li class="output__item">
+            <span class="output__name">Generated</span>
+            <span class="output__generated"></span>
+          </li>
+          <li class="output__item">
+            <span class="output__name">Entered</span>
+            <span class="output__entered"></span>
+          </li>
+          <li class="output__item">
+            <span class="output__name">Result</span>
+            <span class="output__result"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script type="text/javascript" src="scripts/main.js"></script>
+  </body>
+</html>

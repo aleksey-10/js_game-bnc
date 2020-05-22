@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.game {
+  margin: 0 auto;
+  width: 300px;
+}
+
+.form__input {
+  padding: 10px;
+}
+.form__button {
+  width: 60px;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.output {
+  display: none;
+}
+.output--active {
+  display: block;
+}
+.output__item {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 15px;
+}
+.output__generated {
+  color: red;
+}
+.output__entered {
+  color: green;
+}
+.output__result {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=main.css.map */

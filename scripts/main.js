@@ -10,10 +10,10 @@ document.querySelector('.form').onsubmit = function() {
   attempts--;
 
   if (attempts < 1 || (result && result.bulls === 4)) {
-    return gameOver(result);
+    gameOver(result);
+  } else {
+    fillUpOutput(enteredNumber, result);
   }
-
-  fillUpOutput(enteredNumber, result);
 
   return false;
 };

@@ -7,9 +7,9 @@ document.querySelector('.form').onsubmit = function() {
   const enteredNumber = this.querySelector('input').value;
   const result = bullsAndCows(randomNumber, enteredNumber);
 
-  attempts--;
+  result && attempts--;
 
-  if (attempts < 1 || (result && result.bulls === 4)) {
+  if (attempts < 1 || result && result.bulls === 4) {
     gameOver(result);
   } else {
     fillUpOutput(enteredNumber, result);
@@ -25,7 +25,7 @@ function gameOver(result) {
 
   gameOverElement.classList.add('output__gameover--active');
 
-  gameOverElement.innerHTML = (result && result.bulls === 4)
+  gameOverElement.innerHTML = result.bulls === 4
     ? 'You won!' : 'You lose!';
 
   const message = document.createElement('span');

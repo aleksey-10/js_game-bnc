@@ -3,8 +3,6 @@
 const randomNumber = generateRandomNumber();
 let attempts = 5;
 
-console.log(randomNumber);
-
 document.querySelector('.form').onsubmit = function() {
   const enteredNumber = this.querySelector('input').value;
   const result = bullsAndCows(randomNumber, enteredNumber);

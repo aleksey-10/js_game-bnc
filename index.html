@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="./styles/main.css">
   </head>
   <body>
-    <h1>Bulls and cows</h1>
+    <h1 class="title">Bulls and cows</h1>
     <div class="game">
-      <form action="#" class="game__form form">
+      <form class="game__form form">
         <input
-          type="text"
+          type="number"
           class="form__input"
           placeholder="Your number"
           required
-          minlength="4"
-          maxlength="4"
+          min="1111"
+          max="9999"
         >
         <button class="form__button">Submit</button>
       </form>
@@ -24,15 +24,15 @@
         <ul class="output__list">
           <li class="output__item">
             <span class="output__name">Entered</span>
-            <span class="output__entered"></span>
+            <div class="output__entered"></div>
           </li>
           <li class="output__item">
             <span class="output__name">Result</span>
-            <span class="output__result"></span>
+            <div class="output__result"></div>
           </li>
           <li class="output__item">
             <span class="output__name">Attempts</span>
-            <span class="output__attempts"></span>
+            <div class="output__attempts"></div>
           </li>
         </ul>
         <h2 class="output__gameover"></h2>

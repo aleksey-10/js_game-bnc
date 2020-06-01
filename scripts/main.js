@@ -39,14 +39,16 @@ function setGameOver(result) {
 }
 
 function fillUpOutput(enteredNumber, result) {
-  if (result !== undefined) {
-    const enteredNumberElement = document.createElement('div');
+  const enteredNumberElement = document.createElement('div');
 
-    enteredNumberElement.className = 'output__user-number';
-    enteredNumberElement.innerHTML = enteredNumber;
-    
-    outputElement.querySelector('.output__entered').append(enteredNumberElement);
+  enteredNumberElement.className = 'output__user-number';
+  enteredNumberElement.innerHTML = enteredNumber;
+
+  if (!result || (!document.querySelector('.output__entered').children.length && !result)) {
+    enteredNumberElement.classList.add('output__user-number--wrong');
   }
+
+  outputElement.querySelector('.output__entered').append(enteredNumberElement);
 
   outputElement.querySelector('.output__result').innerHTML = result
     ? `Bulls: ${result.bulls}, Cows: ${result.cows}`
@@ -94,10 +96,9 @@ function bullsAndCows(generatedNumber, enteredNumber) {
   for (let i = 0; i < generatedNumber.length; i++) {
     if (enteredNumber[i] === generatedNumber[i]) {
       hits.bulls++;
-      continue;
+    } else {
+      generatedNumber.includes(enteredNumber[i]) && hits.cows++;
     }
-
-    generatedNumber.includes(enteredNumber[i]) && hits.cows++;
   }
 
   return hits;

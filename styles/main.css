@@ -68,5 +68,8 @@ ul {
 .output__user-number:last-child {
   margin-bottom: 0;
 }
+.output__user-number--wrong {
+  color: red;
+}
 
 /*# sourceMappingURL=main.css.map */

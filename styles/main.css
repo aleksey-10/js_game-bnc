@@ -15,20 +15,34 @@ ul {
   padding-left: 0;
 }
 
-.game {
-  margin: 0 auto;
-  width: 300px;
+.title {
+  text-align: center;
 }
 
+.game {
+  margin: 0 auto;
+  padding: 0 10px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.form {
+  display: flex;
+}
 .form__input {
+  flex: 1 1 100%;
   padding: 10px;
 }
 .form__button {
-  width: 60px;
+  flex: 1 0 125px;
   padding: 10px 0;
   cursor: pointer;
 }
 
+.output {
+  text-align: center;
+  padding: 0 10px;
+}
 .output__list, .output__gameover {
   display: none;
 }
@@ -39,12 +53,20 @@ ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin-bottom: 15px;
+  justify-content: space-between;
+  text-align: left;
 }
 .output__entered {
   color: green;
 }
 .output__result {
   font-weight: bold;
+}
+.output__user-number {
+  margin-bottom: 10px;
+}
+.output__user-number:last-child {
+  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=main.css.map */
